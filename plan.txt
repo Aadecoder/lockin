@@ -2,7 +2,7 @@ what is it that we wish to do
 
 1. Journal 
 2. Task Planner
-3. Calendar
-4. Pomodoro Timer
-5. To-Do List
+3. Calendar ----------> Done
+4. Pomodoro Timer ----> 
+5. To-Do List --------> Done
 6. Login thing

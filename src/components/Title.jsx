@@ -2,7 +2,7 @@ import React from 'react'
 
 const Title = () => {
   return (
-    <>
+    <div className='background-blur w-min h-auto'>
       <h1
           className="text-5xl 
                         text-left 
@@ -20,7 +20,7 @@ const Title = () => {
         >
           Get Shit Done...
         </h2>
-    </>
+    </div>
   )
 }
 

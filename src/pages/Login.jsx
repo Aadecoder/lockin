@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom'
+import DotGrid from './DotGrid';
 
 const Login = (name) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -18,10 +19,25 @@ const Login = (name) => {
   return (
     <>
     <div className="flex justify-center items-center w-lvw h-lvh">
+
+      <div className='absolute top-0 left-0 w-full h-full'>
+        <DotGrid
+          dotSize={5}
+          gap={20}
+          baseColor="#78350f"
+          activeColor="#f59e0b"
+          proximity={100}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={1.5}
+        />
+      </div>
       <div
         className="border-2 
                    border-amber-900
-                   m-10 w-200 h-1/2"
+                   transition-all duration-100 ease-in-out hover:shadow-amber-900/50 hover:shadow-lg
+                   m-10 w-200 h-1/2 background-blur"
       >
         <h1
           className="text-5xl 
@@ -58,10 +74,9 @@ const Login = (name) => {
             onMouseLeave={()=>setIsHovered(false)}
             onMouseEnter={()=>setIsHovered(true)}
             onClick={handleNavigation}
-            className={`text-2xl ${isHovered ? 'bg-amber-900' : 'bg-amber-950'}
-                        w-auto p-2 m-10 border-2
-                       ${isHovered ? 'border-amber-950' : 'border-amber-900'}
-                       ${isHovered ? 'cursor-pointer' : 'cursor-default'}`}
+
+            className='px-4 py-2 bg-white/10 border border-white/20 text-amber-400 cursor-pointer text-xl font-medium m-10 rounded-md
+                      transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
           >
             Submit
           </button>

@@ -27,8 +27,9 @@ function Todolist() {
 
   return (
     <div
-      className={`absolute top-5 right-5 w-1/4 h-1/2 border-2 border-amber-900 text-2xl p-5 text-left
+      className={`w-full h-full border-2 border-amber-900 text-2xl p-5 text-left
             transition-all duration-100 ease-in-out hover:shadow-amber-900/50 hover:shadow-lg
+            background-blur
         `}
     >
       <form onSubmit={handleSubmit} className="mb-2">
@@ -45,9 +46,8 @@ function Todolist() {
         <button
           type="button"
           onClick={handleSubmit}
-          className={`text-2xl bg-amber-700 w-auto p-2 m-5 border-2 block relative left-1/3 hover:border-amber-950 hover:cursor-pointer border-amber-900
-                    transition-all duration-100 ease-in-out hover:shadow-amber-700/50 hover:shadow-lg
-          `}
+            className='px-4 py-2 bg-white/10 border border-white/20 text-amber-400 cursor-pointer text-xl font-medium relative left-1/3 m-4 rounded-md
+                      transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
         >Add Task
         </button>
       </form>

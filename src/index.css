@@ -35,3 +35,8 @@
     "GRAD" 0,
     "ROND" 0;
 }
+
+.background-blur {
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+}
