@@ -1,12 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Todolist from '../components/Todolist';
 import Title from '../components/Title';
-import Calendar from 'react-calendar';
 import PomodoroTimer from '../components/PomodoroTimer';
 import DotGrid from './DotGrid';
 import Journal from '../components/Journal';
+import api from '../lib/axios';
+import JournalList from '../components/JournalList';
 
 export const Homepage = () => {
+
+  const [journals, setJournals] = useState([]);
+
+  useEffect(()=>{
+    const fetchNotes = async () => {
+      try {
+        const res = await api.get("/journal");
+        setJournals(res.data);
+      } catch (error) {
+        console.error("Error fetching journal entries", error);
+      }  
+    }
+    fetchNotes();
+  }, [])
+  journals.map((journal)=>{
+    console.log(journal.title);
+    console.log(journal._id);
+  })
+  console.log(journals)
 
   return (
     <>
@@ -28,8 +48,15 @@ export const Homepage = () => {
         <div className='grid grid-cols-4 h-screen w-screen justify-between items-stretch gap-4'>
             <div>
               <Title />
+              {journals.length > 0 && (
+                journals.map((journal)=>(
+                  <div>
+                    <JournalList id={journal._id} journal={journal} setJournal={setJournals}/>
+                  </div>
+                ))
+              )}
             </div>
-            <div className='col-span-2 w-full h-full overflow-visible'>
+            <div className='col-span-2 w-full h-full p-4'>
               <Journal />
             </div>
           <div className='flex flex-1 flex-col justify-between w-full h-full items-center gap-4 p-4'>

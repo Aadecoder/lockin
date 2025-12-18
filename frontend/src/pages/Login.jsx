@@ -2,13 +2,16 @@ import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom'
 import DotGrid from './DotGrid';
 
-const Login = (name) => {
+export let name = "";
+
+const Login = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isName, setName] = useState('')
   const navigate = useNavigate()
 
   const handleChange = (e) =>{
     setName(e.target.value);
+    name = e.target.value;
   };
   
   const handleNavigation = (e)=>{
@@ -87,4 +90,4 @@ const Login = (name) => {
   );
 };
 
-export default Login;
+export default Login
