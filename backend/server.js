@@ -4,6 +4,7 @@ import cors from 'cors';
 import path from 'path';
 
 import journalRoutes from './routes/journalRoutes.js';
+import tasksRoutes from './routes/taskRoutes.js';
 import { connectDB } from './config/db.js';
 
 dotenv.config();
@@ -20,6 +21,7 @@ if(process.env.NODE_ENV !== "production"){
 }
 
 app.use("/api/journal", journalRoutes);
+app.use("/api/tasks", tasksRoutes);
 
 
 if (process.env.NODE_ENV === "production") {

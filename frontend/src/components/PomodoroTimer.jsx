@@ -156,19 +156,20 @@ const PomodoroTimer = () => {
   };
 
   return (
-    <div className='flex flex-col gap-4 h-full w-full bg-transparent p-5 border-2
+    <div className='flex flex-col gap-4 sm:gap-6 h-full w-full bg-transparent p-4 sm:p-5 md:p-6 lg:p-8 border
                     border-amber-900 transition-all duration-100 ease-in-out hover:shadow-amber-900/50 hover:shadow-lg
-                    background-blur'>
+                    background-blur min-h-[420px]'>
       {/* Header */}
       <div className='text-center'>
-        <h2 className='text-4xl font-semibold text-amber-400 tracking-wide mb-2 major-mono-display-regular'>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-amber-400 tracking-wide mb-2 major-mono-display-regular'>
           {sessionType === 'work' ? 'Work Session' : 'Break Time'}
         </h2>
       </div>
 
       {/* Timer Display */}
       <div className='flex justify-center items-center'>
-        <div className='text-9xl font-bold text-amber-300 font-mono tracking-wider shadow-lg' style={{ textShadow: '0 0 10px rgba(245, 158, 11, 0.3)' }}>
+        <div className='text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-bold text-amber-300 font-mono tracking-wider leading-tight'
+             style={{ textShadow: '0 0 10px rgba(245, 158, 11, 0.3)' }}>
           {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
         </div>
       </div>
@@ -179,20 +180,20 @@ const PomodoroTimer = () => {
           <button
             onClick={handleStart}
             disabled={isActive}
-            className='px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-xl font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
+            className='px-3 sm:px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-sm sm:text-base md:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
           >
             Start
           </button>
           <button
             onClick={handlePause}
             disabled={!isActive}
-            className='px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-xl font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
+            className='px-3 sm:px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-sm sm:text-base md:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
           >
             Pause
           </button>
           <button
             onClick={handleReset}
-            className='px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-xl font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 active:scale-95'
+            className='px-3 sm:px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-sm sm:text-base md:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 active:scale-95'
           >
             Reset
           </button>
@@ -202,28 +203,28 @@ const PomodoroTimer = () => {
       {/* Settings Section */}
       <div className='flex flex-col gap-3 mt-4 pt-4 border-t border-white/10'>
         {/* Work Duration */}
-        <div className='flex justify-between items-center text-gray-300 text-xl'>
-          <label className='text-gray-400 font-medium'>Work Duration</label>
+        <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-gray-300'>
+          <label className='text-gray-400 font-medium text-sm sm:text-base md:text-lg'>Work Duration</label>
           <input
             type='number'
             value={workDuration}
             onChange={handleWorkDurationChange}
             disabled={isActive}
-            className='w-16 px-2 py-1 bg-white/5 border border-white/15 text-amber-400 rounded text-xl text-center transition-all duration-200 focus:outline-none focus:bg-white/10 focus:border-amber-400/40 focus:shadow-md focus:shadow-amber-400/20 disabled:opacity-50'
+            className='w-14 sm:w-16 md:w-20 px-2 py-1 bg-white/5 border border-white/15 text-amber-400 rounded text-sm sm:text-base md:text-lg text-center transition-all duration-200 focus:outline-none focus:bg-white/10 focus:border-amber-400/40 focus:shadow-md focus:shadow-amber-400/20 disabled:opacity-50'
             min='1'
             max='60'
           />
         </div>
 
         {/* Break Duration */}
-        <div className='flex justify-between items-center text-gray-300 text-xl'>
-          <label className='text-gray-400 font-medium'>Break Duration</label>
+        <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-gray-300'>
+          <label className='text-gray-400 font-medium text-sm sm:text-base md:text-lg'>Break Duration</label>
           <input
             type='number'
             value={breakDuration}
             onChange={handleBreakDurationChange}
             disabled={isActive}
-            className='w-16 px-2 py-1 bg-white/5 border border-white/15 text-amber-400 rounded text-xl text-center transition-all duration-200 focus:outline-none focus:bg-white/10 focus:border-amber-400/40 focus:shadow-md focus:shadow-amber-400/20 disabled:opacity-50'
+            className='w-14 sm:w-16 md:w-20 px-2 py-1 bg-white/5 border border-white/15 text-amber-400 rounded text-sm sm:text-base md:text-lg text-center transition-all duration-200 focus:outline-none focus:bg-white/10 focus:border-amber-400/40 focus:shadow-md focus:shadow-amber-400/20 disabled:opacity-50'
             min='1'
             max='30'
           />
@@ -233,11 +234,12 @@ const PomodoroTimer = () => {
         <div className='flex items-center gap-3 mt-2'>
           <button
             onClick={() => { setIsMuted(v => !v); }}
-            className='w-8 h-8 bg-white/10 border border-white/20 text-amber-400 rounded cursor-pointer flex items-center justify-center text-lg transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20'
+            className='w-8 h-8 sm:w-9 sm:h-9 bg-white/10 border border-white/20 text-amber-400 rounded cursor-pointer flex items-center justify-center text-lg sm:text-xl transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20'
+            aria-label='Toggle sound'
           >
             {isMuted ? '🔇' : '🔊'}
           </button>
-          <span className='text-gray-400 text-xl'>{isMuted ? 'Muted' : 'Sound On'}</span>
+          <span className='text-gray-400 text-sm sm:text-base md:text-lg'>{isMuted ? 'Muted' : 'Sound On'}</span>
         </div>
       </div>
     </div>

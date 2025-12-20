@@ -22,11 +22,8 @@ export const Homepage = () => {
     }
     fetchNotes();
   }, [])
-  journals.map((journal)=>{
-    console.log(journal.title);
-    console.log(journal._id);
-  })
-  console.log(journals)
+  
+
 
   return (
     <>
@@ -45,7 +42,7 @@ export const Homepage = () => {
         />
       </div>
 
-        <div className='grid grid-cols-4 h-screen w-screen justify-between items-stretch gap-4'>
+        <div className='grid grid-cols-4 h-lvh w-lvw justify-between items-stretch gap-4'>
             <div>
               <Title />
               {journals.length > 0 && (
@@ -56,15 +53,15 @@ export const Homepage = () => {
                 ))
               )}
             </div>
-            <div className='col-span-2 w-full h-full p-4'>
+            <div className='col-span-2 w-full h-lvh p-4'>
               <Journal />
             </div>
-          <div className='flex flex-1 flex-col justify-between w-full h-full items-center gap-4 p-4'>
-              <div className='w-full h-full background-blur'>
+          <div className='flex flex-1 flex-col justify-between w-full h-lvh items-center gap-4 p-4'>
+              <div className='w-full h-1/2 background-blur p-2'>
                 <PomodoroTimer />
               </div>
-              <div className='h-full'>
-                <Todolist />
+              <div className='h-1/2 w-full p-2'>
+                    <Todolist/>
               </div>
               {/*<div className='background-blur'>
                 <Calendar />
