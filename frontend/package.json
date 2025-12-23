@@ -26,14 +26,14 @@
     "react-hot-toast": "^2.6.0",
     "react-router-dom": "^7.10.1",
     "tailwindcss": "^4.1.17",
-    "use-sound": "^5.0.0"
+    "use-sound": "^5.0.0",
+    "@vitejs/plugin-react": "^5.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
     "daisyui": "^5.5.14",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
