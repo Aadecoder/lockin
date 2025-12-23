@@ -1,10 +1,10 @@
-import React from 'react'
 
 const Title = () => {
   return (
-    <div className='background-blur w-min h-auto'>
+    <div className='w-full h-full'>
       <h1
-          className="text-5xl 
+          className="text-4xl 
+                        background-blur
                         text-left 
                         m-10 mb-1 
                         major-mono-display-regular"
@@ -14,6 +14,7 @@ const Title = () => {
         </h1>
         <h2
           className="text-1xl
+                        background-blur
                         google-sans-flex 
                         lato-regular m-10 mt-0 mb-30 ml-12
                         text-left"

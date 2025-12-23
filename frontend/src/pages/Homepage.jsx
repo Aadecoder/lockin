@@ -43,24 +43,28 @@ export const Homepage = () => {
       </div>
 
         <div className='grid grid-cols-4 h-lvh w-lvw justify-between items-stretch gap-4'>
-            <div>
-              <Title />
-              {journals.length > 0 && (
-                journals.map((journal)=>(
-                  <div>
-                    <JournalList id={journal._id} journal={journal} setJournal={setJournals}/>
-                  </div>
-                ))
-              )}
+            <div className='flex flex-1 flex-col justify-between w-full h-lvh p-4'>
+              <div className='h-1/6 w-full'>
+                <Title />
+              </div>
+              <div className='max-h-5/6 min-h-5/6 mb-2 w-full overflow-auto border border-amber-900 p-2'>
+                {journals.length > 0 && (
+                  journals.map((journal)=>(
+                    <div>
+                      <JournalList id={journal._id} journal={journal} setJournal={setJournals}/>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
-            <div className='col-span-2 w-full h-lvh p-4'>
+            <div className='col-span-2 w-full h-lvh p-6'>
               <Journal />
             </div>
           <div className='flex flex-1 flex-col justify-between w-full h-lvh items-center gap-4 p-4'>
               <div className='w-full h-1/2 background-blur p-2'>
                 <PomodoroTimer />
               </div>
-              <div className='max-h-1/2 w-full p-2'>
+              <div className='max-h-1/2 min-h-1/2 w-full p-2'>
                     <Todolist/>
               </div>
               {/*<div className='background-blur'>
