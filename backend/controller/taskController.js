@@ -22,6 +22,19 @@ export async function createTask(req, res){
     }
 };
 
+export async function updateTask(req, res){
+    try {
+        const {title, completed} = req.body;
+        const updatedTask = await Task.findByIdAndUpdate(req.params.id, {title:title, completed:completed}, {new:true});
+        if(!updatedTask) return res.status(404).json({message:"Task Not Found"});
+        res.status(200).json(updatedTask);
+    } catch (error) {
+        console.error("Error in updatedTask Controller", error);
+        res.status(500).json({message: "Internal Server Error"});
+    }
+};
+
+
 export async function deleteTask(req, res){
     try {
         const deletedTask = await Task.findByIdAndDelete(req.params.id);

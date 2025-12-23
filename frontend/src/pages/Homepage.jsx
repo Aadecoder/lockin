@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Todolist from '../components/Todolist';
 import Title from '../components/Title';
 import PomodoroTimer from '../components/PomodoroTimer';
@@ -60,7 +60,7 @@ export const Homepage = () => {
               <div className='w-full h-1/2 background-blur p-2'>
                 <PomodoroTimer />
               </div>
-              <div className='h-1/2 w-full p-2'>
+              <div className='max-h-1/2 w-full p-2'>
                     <Todolist/>
               </div>
               {/*<div className='background-blur'>

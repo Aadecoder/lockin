@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import startSfx from '../assets/sounds/startTimer.mp3'
 import pauseSfx from '../assets/sounds/pauseTimer.mp3'
 import timesUpSfx from '../assets/sounds/timesUp.mp3'
@@ -156,44 +156,44 @@ const PomodoroTimer = () => {
   };
 
   return (
-    <div className='flex flex-col gap-4 sm:gap-6 h-full w-full bg-transparent p-4 sm:p-5 md:p-6 lg:p-8 border
+    <div className='flex flex-col h-full w-full bg-transparent p-4 sm:p-5 md:p-6 lg:p-8 border
                     border-amber-900 transition-all duration-100 ease-in-out hover:shadow-amber-900/50 hover:shadow-lg
-                    background-blur min-h-[420px]'>
+                    background-blur'>
       {/* Header */}
-      <div className='text-center'>
-        <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-amber-400 tracking-wide mb-2 major-mono-display-regular'>
+      <div className='text-center h-1/6'>
+        <h2 className='sm:text-md md:text-lg lg:text-xl font-semibold text-amber-400 tracking-wide mb-2 major-mono-display-regular'>
           {sessionType === 'work' ? 'Work Session' : 'Break Time'}
         </h2>
       </div>
 
       {/* Timer Display */}
-      <div className='flex justify-center items-center'>
-        <div className='text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] font-bold text-amber-300 font-mono tracking-wider leading-tight'
+      <div className='flex justify-center h-1/6 items-center'>
+        <div className='sm:text-lg md:text-xl lg:text-2xl font-bold text-amber-300 font-mono tracking-wider leading-tight'
              style={{ textShadow: '0 0 10px rgba(245, 158, 11, 0.3)' }}>
           {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
         </div>
       </div>
 
       {/* Controls Section */}
-      <div className='flex flex-col gap-3 my-2'>
-        <div className='flex gap-2 justify-center flex-wrap'>
+      <div className='flex flex-col my-1 h-1/6'>
+        <div className='flex justify-center flex-wrap gap-0.5'>
           <button
             onClick={handleStart}
             disabled={isActive}
-            className='px-3 sm:px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-sm sm:text-base md:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
+            className='px-3 py-1 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer sm:text-sm md:text-md large:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
           >
             Start
           </button>
           <button
             onClick={handlePause}
             disabled={!isActive}
-            className='px-3 sm:px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-sm sm:text-base md:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
+            className='px-3 py-1 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer sm:text-sm md:text-md large:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 disabled:opacity-50 active:scale-95'
           >
             Pause
           </button>
           <button
             onClick={handleReset}
-            className='px-3 sm:px-4 py-2 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer text-sm sm:text-base md:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 active:scale-95'
+            className='px-3 py-1 bg-white/10 border border-white/20 text-amber-400 rounded-md cursor-pointer sm:text-sm md:text-md large:text-lg font-medium transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20 active:scale-95'
           >
             Reset
           </button>
@@ -201,45 +201,45 @@ const PomodoroTimer = () => {
       </div>
 
       {/* Settings Section */}
-      <div className='flex flex-col gap-3 mt-4 pt-4 border-t border-white/10'>
+      <div className='flex flex-col mt-4 pt-4 border-t border-white/10 h-1/2 overflow-auto gap-1'>
         {/* Work Duration */}
-        <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-gray-300'>
-          <label className='text-gray-400 font-medium text-sm sm:text-base md:text-lg'>Work Duration</label>
+        <div className='flex flex-col sm:flex-row sm:items-center justify-between text-gray-300 h-1/3'>
+          <label className='text-gray-400 font-medium sm:text-sm md:text-mg large:text-lg'>Work Duration</label>
           <input
             type='number'
             value={workDuration}
             onChange={handleWorkDurationChange}
             disabled={isActive}
-            className='w-14 sm:w-16 md:w-20 px-2 py-1 bg-white/5 border border-white/15 text-amber-400 rounded text-sm sm:text-base md:text-lg text-center transition-all duration-200 focus:outline-none focus:bg-white/10 focus:border-amber-400/40 focus:shadow-md focus:shadow-amber-400/20 disabled:opacity-50'
+            className='px-2 py-1 bg-white/5 border border-white/15 text-amber-400 rounded sm:text-sm md:text-mg large:text-lg text-center transition-all duration-200 focus:outline-none focus:bg-white/10 focus:border-amber-400/40 focus:shadow-md focus:shadow-amber-400/20 disabled:opacity-50'
             min='1'
             max='60'
           />
         </div>
 
         {/* Break Duration */}
-        <div className='flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-gray-300'>
-          <label className='text-gray-400 font-medium text-sm sm:text-base md:text-lg'>Break Duration</label>
+        <div className='flex flex-col sm:flex-row sm:items-center justify-between text-gray-300 h-1/3'>
+          <label className='text-gray-400 font-medium sm:text-sm md:text-mg large:text-lg'>Break Duration</label>
           <input
             type='number'
             value={breakDuration}
             onChange={handleBreakDurationChange}
             disabled={isActive}
-            className='w-14 sm:w-16 md:w-20 px-2 py-1 bg-white/5 border border-white/15 text-amber-400 rounded text-sm sm:text-base md:text-lg text-center transition-all duration-200 focus:outline-none focus:bg-white/10 focus:border-amber-400/40 focus:shadow-md focus:shadow-amber-400/20 disabled:opacity-50'
+            className='px-2 py-1 bg-white/5 border border-white/15 text-amber-400 rounded sm:text-sm md:text-mg large:text-lg text-center transition-all duration-200 focus:outline-none focus:bg-white/10 focus:border-amber-400/40 focus:shadow-md focus:shadow-amber-400/20 disabled:opacity-50'
             min='1'
             max='30'
           />
         </div>
 
         {/* Mute Toggle */}
-        <div className='flex items-center gap-3 mt-2'>
+        <div className='flex items-center mt-2 h-1/3'>
           <button
             onClick={() => { setIsMuted(v => !v); }}
-            className='w-8 h-8 sm:w-9 sm:h-9 bg-white/10 border border-white/20 text-amber-400 rounded cursor-pointer flex items-center justify-center text-lg sm:text-xl transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20'
+            className='p-1 bg-white/10 border border-white/20 text-amber-400 rounded cursor-pointer flex items-center justify-center sm:text-sm md:text-mg large:text-lg transition-all duration-300 hover:bg-amber-400/20 hover:border-amber-400/40 hover:shadow-lg hover:shadow-amber-400/20'
             aria-label='Toggle sound'
           >
             {isMuted ? '🔇' : '🔊'}
           </button>
-          <span className='text-gray-400 text-sm sm:text-base md:text-lg'>{isMuted ? 'Muted' : 'Sound On'}</span>
+          <span className='text-gray-400 sm:text-sm md:text-mg large:text-lg'>{isMuted ? 'Muted' : 'Sound On'}</span>
         </div>
       </div>
     </div>
