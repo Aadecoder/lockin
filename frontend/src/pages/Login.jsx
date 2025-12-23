@@ -1,11 +1,12 @@
-import React, {useState} from "react";
+import  {useState} from "react";
 import { useNavigate } from 'react-router-dom'
 import DotGrid from './DotGrid';
 import toast from "react-hot-toast";
 
-export let name = "";
 
 const Login = () => {
+  
+
   const navigate = useNavigate()
   const [name, setName] = useState("");
 
@@ -68,7 +69,11 @@ const Login = () => {
             className="block major-mono-display-regular w-1/2 h-10 text-2xl text-center text-amber-400 outline-none border-2 m-"
             placeholder="What is your name??"
             onKeyDown={(e)=>{if (e.key === 'Enter') {
-                handleNavigation;
+                if(name === "adianu"){
+                  navigate('/home');
+                }else{
+                  toast.error("Enter the correct password");
+                }
             }}}
             onChange={handleChange}
           />
@@ -77,8 +82,6 @@ const Login = () => {
           className="justify-center flex items-center"
         >
           <button
-            onMouseLeave={()=>setIsHovered(false)}
-            onMouseEnter={()=>setIsHovered(true)}
             onClick={handleNavigation}
 
             className='px-4 py-2 bg-white/10 border border-white/20 text-amber-400 cursor-pointer text-xl font-medium m-10 rounded-md
