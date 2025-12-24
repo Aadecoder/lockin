@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Aadecoder/lockin/issues"
   },
-  "homepage": "https://github.com/Aadecoder/lockin#readme"
+  "homepage": "https://github.com/Aadecoder/lockin#readme",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2"
+  }
 }
